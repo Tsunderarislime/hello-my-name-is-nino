@@ -48,7 +48,7 @@ main {
     position: absolute;
     width: 1070px;
     height: 1600px;
-    filter: blur(25px) brightness(10%) grayscale(100%);
+    filter: blur(20px) brightness(20%) grayscale(100%);
     z-index: 1
 }
 

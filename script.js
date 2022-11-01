@@ -151,8 +151,8 @@ async function endGame() {
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.open("GET", "./nino/nino.csv", false);
 xmlhttp.send();
-alert(xmlhttp.responseText)
-const nino = parse(xmlhttp.responseText);
+var csv = xmlhttp.responseText
+const nino = parse(csv);
 
 //Initial game state
 var unseen; //IDs of all Ninos that have not been seen

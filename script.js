@@ -149,7 +149,7 @@ async function endGame() {
 
 //Load in the Nino face CSV
 var xmlhttp = new XMLHttpRequest();
-xmlhttp.open("GET", "/nino/nino.csv", false);
+xmlhttp.open("GET", "./nino/nino.csv", false);
 xmlhttp.send();
 const nino = parse(xmlhttp.responseText);
 

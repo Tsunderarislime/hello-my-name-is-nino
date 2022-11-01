@@ -1,5 +1,5 @@
-import { parse } from '/modules/index-min.js'
-import { alter } from '/modules/panel.js'
+import { parse } from './modules/index-min.js'
+import { alter } from './modules/panel.js'
 
 //Function to wait a set amount of milliseconds
 function sleep(ms) {

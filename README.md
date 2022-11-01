@@ -6,6 +6,8 @@ A fun quiz game involving pages from the Gotoubun no Hanayome/The Quintessential
 
 This should just run in the browser as long as JavaScript is enabled. May look weird on smaller browser windows.
 
+# [Play the game](https://tsunderarislime.github.io/hello-my-name-is-nino/main.html)
+
 ## Special thanks
 ---
 VanillaES for their CSV file parser for JavaScript, [CSV repository](https://github.com/vanillaes/csv).

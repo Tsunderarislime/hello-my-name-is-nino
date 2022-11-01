@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<main>
+    <head>
+        <title>Yo</title>
+        <link rel="stylesheet" href="style.css">
+        <script type="module" src="script.js"></script>
+    </head>
+
+    <body>
+        <h1 id="title" class="bigfont">HELLO MY NAME IS NINO</h1>
+        <div id="frame">
+            <div id="game">
+                <div id="page">
+                    <input type="checkbox" id="check"></input>
+                    <label for="check" id="underlay"></label>
+                    <div id="overlay"></div>
+                    <div id="noclick"></div>
+                </div>
+                <div id="answer">
+                    <p>Enter a volume from 1-14.</p>
+                    <input type="number" id="inVo" min="1" max="14" value="1">
+                    <button id="sendVo">Check volume</button>
+
+                    <p>Enter a chapter from 1-122. Enter 0 if it is not from a normal chapter (chapter X.5)</p>
+                    <input type="number" id="inCh" min="0" max="122" value="1">
+                    <button id="sendCh">Check chapter</button><br>
+                </div>
+                <div id="results">
+                    <h1 id="wrongCorrect" class="bigfont"></h1>
+                    <h3 id="where"></h3>
+                </div>
+                <div id="gameover">
+                    <h1 class="bigfont">GAME OVER!</h1>
+                    <h1 id="fScore" class="bigfont"></h3>
+                    <h1 id="fHigh" class="bigfont"></h3>
+                    <h3 id="vCount"></h3>
+                    <h3 id="cCount"></h3>
+                </div>
+                <h2 id="current"></h2>
+                <h2 id="highest"></h2>
+            </div>
+            <h2 id="highest2"></h2>
+            <button id="start">Start</button>
+        </div>
+    </body>
+</main>

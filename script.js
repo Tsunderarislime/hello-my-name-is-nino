@@ -61,9 +61,11 @@ async function results(t, vc) {
     });
 
     while (advance) {
+        start.disabled = true;
         await sleep(10);
     };
 
+    start.disabled = false;
     document.getElementById("results").style.display = "none";
     document.getElementById("answer").style.display = "block";
     choosePage();

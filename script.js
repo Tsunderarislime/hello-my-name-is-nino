@@ -57,6 +57,7 @@ function init() {
     score = 0;
     vCount = 0;
     cCount = 0;
+    total = 0;
 
     setCombo(false);
     updateScore(0);
@@ -70,6 +71,8 @@ function init() {
 //Function for choosing a random page from the database
 function choosePage() {
     var go = unseen.length;
+    total += 1;
+    document.getElementById("ninoCount").innerText = total + "/199";
     if (go > 0) {
         document.getElementById("check").checked = false;
         var rng = Math.floor(Math.random() * unseen.length);
@@ -89,6 +92,10 @@ async function results(t, vc) {
     document.getElementById("where").innerText = "This Nino can be found in Volume " + nino[id][2] + ", Chapter " + nino[id][3] + ". Click the panel to continue.";
     document.getElementById("answer").style.display = "none";
     document.getElementById("results").style.display = "block";
+
+    if (nino[id][3] == 0) {
+        document.getElementById("where").innerText = "This Nino can be found in Volume " + nino[id][2] + ", EXTRA chapter. Click the panel to continue.";
+    };
 
     var advance = true;
     var noclick = document.getElementById("noclick");
@@ -230,6 +237,7 @@ var hCombo;
 var id;
 var vCount;
 var cCount;
+var total;
 
 const sendVo = document.getElementById("sendVo");
 sendVo.addEventListener("click", verify, false);
@@ -251,11 +259,4 @@ window.addEventListener("load", function() {
 
     document.getElementById("highest2").innerText = "Your highest score is: " + hScore;
     document.getElementById("highestCombo2").innerText = "Your highest combo is: " + hCombo;
-
-    var h = window.innerHeight;
-    var p = this.document.getElementById("page");
-
-    if (h >= 1600) {
-        p.style.scale = "100%";
-    };
 });

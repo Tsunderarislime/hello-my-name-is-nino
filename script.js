@@ -63,7 +63,6 @@ function init() {
     setCombo(false);
     updateScore(0);
     unseen = Array.from({length: nino.length - 1}, (_, i) => i + 1);
-    seen = [];
     choosePage();
     document.getElementById("results").style.display = "none";
     document.getElementById("answer").style.display = "block";
@@ -78,7 +77,6 @@ function choosePage() {
         document.getElementById("check").checked = false;
         var rng = Math.floor(Math.random() * unseen.length);
         id = unseen[rng];
-        seen.push(unseen[rng]);
         unseen.splice(rng, 1);
         alter(nino[id]);
     } else {
@@ -232,7 +230,6 @@ const nino = parse(csv);
 
 //Initial game state
 var unseen; //IDs of all Ninos that have not been seen
-var seen;  //IDs of all Ninos that have been seen
 
 var score; //Score and high score
 var hScore;

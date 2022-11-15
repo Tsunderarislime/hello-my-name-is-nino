@@ -1,6 +1,7 @@
 import { parse } from './modules/index-min.js'
 import { alter } from './modules/panel.js'
 import { readCookie, writeCookie } from './modules/cookie.js'
+import { closeModal, openModal, addHist, changeHist, resetHist } from './modules/modal.js'
 
 //Function to wait a set amount of milliseconds
 function sleep(ms) {
@@ -103,10 +104,13 @@ async function results(t, vc) {
         advance = false;
     });
 
+    addHist(nino[id]);
+
     while (advance) {
         start.disabled = true;
         await sleep(10);
     };
+
 
     sendVo.disabled = false;
     sendCh.disabled = false;
@@ -193,6 +197,7 @@ function startGame() {
             document.getElementById("highest").style.display = "block";
             document.getElementById("currentCombo").style.display = "block";
             document.getElementById("highestCombo").style.display = "block";
+            resetHist();
             init();
         default:
             break;
@@ -249,6 +254,20 @@ sendCh.volume = false;
 
 const start = document.getElementById("start");
 start.addEventListener("click", startGame, false);
+
+const close = document.getElementById("close");
+close.addEventListener("click", closeModal, false)
+
+const open = document.getElementById("open")
+open.addEventListener("click", openModal, false);
+
+const img = document.getElementById("images");
+img.addEventListener('click', function(e) {
+    var hit = e.target.getAttribute("id");
+    if (!(isNaN(hit))) {
+        changeHist(nino[hit]);
+    };
+});
 
 window.addEventListener("load", function() {
     if (document.cookie == "") {

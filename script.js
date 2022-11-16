@@ -181,6 +181,7 @@ function startGame() {
             document.getElementById("highest2").remove();
             document.getElementById("highestCombo2").remove();
             init();
+            document.getElementById("info").style.display = "block";
             break;
         case "End":
             if(confirm("End the current game?")) {
@@ -191,10 +192,7 @@ function startGame() {
             start.innerText = "End";
             document.getElementById("gameover").style.display = "none";
             document.getElementById("answer").style.display = "block";
-            document.getElementById("current").style.display = "block";
-            document.getElementById("highest").style.display = "block";
-            document.getElementById("currentCombo").style.display = "block";
-            document.getElementById("highestCombo").style.display = "block";
+            document.getElementById("info").style.display = "block";
             resetHist();
             init();
         default:
@@ -207,10 +205,7 @@ async function endGame() {
     document.getElementById("answer").style.display = "none";
     document.getElementById("gameover").style.display = "block";
 
-    document.getElementById("current").style.display = "none";
-    document.getElementById("highest").style.display = "none";
-    document.getElementById("currentCombo").style.display = "none";
-    document.getElementById("highestCombo").style.display = "none";
+    document.getElementById("info").style.display = "none";
 
     document.getElementById("fScore").innerText = "FINAL SCORE: " + score;
     document.getElementById("fHigh").innerText = "HIGH SCORE: " + hScore;
@@ -233,13 +228,14 @@ var unseen; //IDs of all Ninos that have not been seen
 
 var score; //Score and high score
 var hScore;
+
 var combo; //Combo and highest combo
 var hCombo;
 
-var id;
-var vCount;
-var cCount;
-var total;
+var id; //id of current Nino
+var vCount; //Volume count
+var cCount; //Chapter count
+var total; //Total Ninos identified
 
 const sendVo = document.getElementById("sendVo");
 sendVo.addEventListener("click", verify, false);
@@ -252,18 +248,28 @@ sendCh.volume = false;
 const start = document.getElementById("start");
 start.addEventListener("click", startGame, false);
 
-const close = document.getElementById("close");
-close.addEventListener("click", closeModal, false)
+const modal = document.getElementById("history");
+modal.addEventListener("click", function(e) {
+    if (e.target == this) {
+        closeModal();
+    };
+});
 
 const open = document.getElementById("open")
 open.addEventListener("click", openModal, false);
 
 const img = document.getElementById("images");
-img.addEventListener('click', function(e) {
+img.addEventListener("click", function(e) {
     var hit = e.target.getAttribute("id");
     if (!(isNaN(hit))) {
         changeHist(nino[hit]);
     };
+});
+
+const beeg = document.getElementById("bigImg");
+beeg.addEventListener("click", function(e) {
+    var link = "." + this.style.backgroundImage.split('.')[1] + ".jpg";
+    window.open(link, '_blank').focus();
 });
 
 window.addEventListener("load", function() {
